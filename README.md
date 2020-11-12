@@ -6,9 +6,9 @@
 
 <p align="center">
   <img src="https://img.shields.io/static/v1?label=golang&message=1.15&color=7fd5ea&logo=go" />
-  <img src="https://img.shields.io/static/v1?label=golang&message=1.15&color=FF6600&logo=rabbitmq" />
+  <img src="https://img.shields.io/static/v1?label=rabbitmq&message=3.8.9&color=FF6600&logo=rabbitmq" />
   <img src="https://img.shields.io/static/v1?label=docker&message=19.03.13&color=0073ec&logo=docker" />
-  <img src="https://img.shields.io/static/v1?label=kubernets&message=19.03.13&color=326CE5&logo=kubernetes" />
+  <img src="https://img.shields.io/static/v1?label=kubernets&message=1.19.3&color=326CE5&logo=kubernetes" />
   <img src="https://img.shields.io/badge/last%20commit-november-important" />
   <img src="https://img.shields.io/badge/license-MIT-success"/>
 </p>
@@ -103,17 +103,15 @@ Esse projeto foi utilizou das seguintes lib:
 
 ### 📙 Arquitetura do Projeto
 
-Para uma melhorar estrutura de projetos utilizamos das seguintes fundamentos:
+Para uma melhorar estrutura de projetos utilizei dos seguintes fundamentos:
 
 - DDD
 - CI & CD
 
 ###  📘 Padrão de Código
 
-Para padronizar a escrita do código, utilizamos as seguinte ferramentas:
+Para padronizar a escrita do código, utilizei as seguinte ferramentas:
 
-- Eslint
-- Prettier
 - EditorConfig
 
 
