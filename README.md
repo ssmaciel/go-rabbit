@@ -37,7 +37,7 @@
 Desenvolvido duas aplicações com Microsserviços utilizando Golang, Containers com Docker e Kurbenetes
 
 ### ✅ Demonstração do Frontend
-<img src="https://github.com/ssmaciel/go-rabbit/blob/main/assets/front-end.png" />
+<img src="https://github.com/ssmaciel/go-rabbit/blob/main/asserts/front-end.png" />
 
 ### ⚙ Pré-requisitos
 
