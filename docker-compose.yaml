@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+
+  producer:
+    container_name: "producer"
+    image: samukamaciel/go-rabbit-producer
+    ports: 
+      - "9090:9090"
+    environment: 
+      - "RABBITMQ_DEFAULT_USER=rabbitmq"
+      - "RABBITMQ_DEFAULT_PASS=rabbitmq"
+      - "RABBITMQ_DEFAULT_HOST=rabbit-go"
+      - "RABBITMQ_DEFAULT_PORT=5672"
+      - "RABBITMQ_DEFAULT_VHOST=/"
+      - "RABBITMQ_CONSUMER_NAME=app-producer-go"
+      - "RABBITMQ_CONSUMER_QUEUE_NAME=users-outher"
+      - "RABBITMQ_NOTIFICATION_EX=amq.direct"
+      - "RABBITMQ_NOTIFICATION_ROUTING_KEY=jobs"
+      - "RABBITMQ_DLX=users.dlx"
+
+  consumer:
+    container_name: "consumer"
+    restart: always
+    tty: true
+    image: samukamaciel/go-rabbit-consumer
+    environment: 
+      - "RABBITMQ_DEFAULT_USER=rabbitmq"
+      - "RABBITMQ_DEFAULT_PASS=rabbitmq"
+      - "RABBITMQ_DEFAULT_HOST=rabbit-go"
+      - "RABBITMQ_DEFAULT_PORT=5672"
+      - "RABBITMQ_DEFAULT_VHOST=/"
+      - "RABBITMQ_CONSUMER_NAME=app-consumer-go"
+      - "RABBITMQ_CONSUMER_QUEUE_NAME=users"
+      - "RABBITMQ_NOTIFICATION_EX=amq.direct"
+      - "RABBITMQ_NOTIFICATION_ROUTING_KEY="
+      - "RABBITMQ_DLX=users.dlx"
+    depends_on: 
+      - "rabbit"
+
+  rabbit:
+    container_name: "rabbit-go"
+    image: "rabbitmq:3-management"
+    environment:
+      RABBITMQ_ERLANG_COOKIE: "SWQOKODSQALRPCLNMEQG"
+      RABBITMQ_DEFAULT_USER: "rabbitmq"
+      RABBITMQ_DEFAULT_PASS: "rabbitmq"
+      RABBITMQ_DEFAULT_VHOST: "/"
+    ports:
+      - "15672:15672"
+      - "5672:5672"
